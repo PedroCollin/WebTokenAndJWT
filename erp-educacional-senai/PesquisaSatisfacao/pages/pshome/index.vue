@@ -122,6 +122,7 @@
 export default {
   name: "Home",
   layout: "default",
+  middleware: 'auth',
 
   mounted() {
     function imgResizer() {

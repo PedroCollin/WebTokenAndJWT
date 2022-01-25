@@ -16,12 +16,12 @@
           <div class="inputcontainer">
             <div class="inputCombo">
               <label id="lblcpf" for="name">LOGIN</label>
-              <input type="cpf" v-model="login" id="name" required />
+              <input type="cpf" v-model="login.username" id="name" required />
             </div>
             <div class="inputCombo combo2">
               <label id="lblsenha" for="senha">SENHA</label>
               <!-- <Password id="senha" v-model="pass" toggleMask></Password> -->
-              <input type="password" v-model="pass" id="senha" required />
+              <input type="password" v-model="login.password" id="senha" required />
             </div>
 
             <button type="submit" class="btn_enviar">ENTRAR</button>
@@ -37,59 +37,26 @@ export default {
   layout: "login",
   data() {
     return {
-      // login: [],
-      pass: null,
-      login: null,
+      login: {
+        password: null,
+        username: null,
+      }
     };
   },
   methods: {
     sendlogin() {
-      console.log(this.login);
-      console.log(this.pass);
-
-      this.$store
-        .dispatch("user/getUser", this.login, this.pass)
-        .then((response) => {
-
-          switch(response)
-          {
-            case "authorized":
-
-              break;
-
-            case "unauthorized":
-
-              break;
-
-            case "invalid":
-
-              break;
-
-            case "exception":
-
-              break;
-          }
-
-
-          if (response.id > 0) {
-            if (
-              response.identificador === this.login &&
-              response.senha === this.pass
-            ) {
-              this.$router.push("/pshome");
-            } else {
-            }
-          }
-
-          console.log("terminou");
-          //   this.actualUser = response[0];
-          //   this.actual_admin = this.actualUser.admin;
-          //   this.$store.dispatch("user/setAdmin", this.actual_admin);
-
-          //   this.reloadButtons();
-          //   this.profileLoaded = true;
-        });
-      // this.$store.dispatch("user/getDjangoUser");
+      this.$auth.loginWith(
+        "local",
+        {data: this.login}
+      )
+      .then(() => {
+        console.log("User is logged in!");
+        }
+      )
+      .catch(error => {
+        console.log("Deu ruim");
+        console.log(error);
+      });
     },
   },
 };

@@ -54,6 +54,7 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/google-fonts',
+        '@nuxtjs/auth',
         'primevue/nuxt',
     ],
 
@@ -63,5 +64,30 @@ export default {
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {}
+    build: {},
+
+    auth: {
+        strategies: {
+            local: {
+                endpoints:{
+                    login: { 
+                        url: 'http://127.0.0.1:8000/api/v1/auth/token/login',
+                        method: 'post',
+                        propertyName: 'auth_token'
+                    },
+                    user: { 
+                        url: 'http://127.0.0.1:8000/turma',
+                        method: 'get',
+                        propertyName: false
+                    }
+                },
+                tokenType: 'Token',
+                tokenName: 'Authorization'
+            }
+        },
+        redirect: {
+            login: '/',
+            home: '/pshome'
+        }
+    }
 }
