@@ -1,0 +1,34 @@
+.row{
+    padding: 20px;
+}
+
+.card{
+    border-radius: 25px;
+    align-items: center;
+    text-align: center;
+
+}
+
+#btn_card{
+    border-radius: 25px;
+    margin-top: 10px;
+    width: 250px;
+    height: 45px;
+    background-color: #C22A1F;
+    color: #FFFFFF;
+}
+
+#content_search{
+    padding: 20px;
+}
+
+#search{
+    width:300px;
+}
+
+#title_turmas{
+    margin-left: 1100px;
+
+}
+
+

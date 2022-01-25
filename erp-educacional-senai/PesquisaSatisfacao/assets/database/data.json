@@ -1,0 +1,31 @@
+{
+    "users": [{
+            "id": 1,
+            "name": "André Felipe Savedra Cruz",
+            "firstname": "André",
+            "img": "userimg-1.jpg",
+            "admin": true,
+            "level": 4
+        },
+        {
+            "id": 2,
+            "name": "Camila Ramires Savedra",
+            "firstname": "Camila",
+            "img": "userimg-2.jpg",
+            "admin": false,
+            "level": 3
+        },
+        {
+            "id": 3,
+            "name": "Ana Clara Ramires Savedra",
+            "firstname": "Ana",
+            "img": "userimg-3.jpg",
+            "admin": false,
+            "level": 1
+        }
+
+    ]
+
+
+
+}
